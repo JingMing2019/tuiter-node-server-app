@@ -14,7 +14,7 @@ import tuitsController from "./controllers/tuits-constroller/index.js"
 const app = express();
 
 examplesController(app);
-tuitsController(app);
+// tuitsController(app);
 
 // The server app listens to (wait at) port http://localhost:4000/, which does not collide with other web apps
 app.listen(process.env.PORT || 4000)
