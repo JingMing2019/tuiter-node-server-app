@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "tuiter-node-server-app",
   "version": "1.0.0",
   "description": "Tuiter middle tier application",
@@ -15,6 +16,7 @@
   "author": "Jing Ming",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
   }
 }
