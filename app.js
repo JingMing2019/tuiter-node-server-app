@@ -17,4 +17,4 @@ examplesController(app);
 tuitsController(app);
 
 // The server app listens to (wait at) port http://localhost:4000/, which does not collide with other web apps
-app.listen(4000)
+app.listen(process.env.PORT || 4000)
