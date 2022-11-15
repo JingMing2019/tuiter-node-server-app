@@ -10,6 +10,7 @@ import examplesController from "./controllers/examples-controller.js";
 import tuitsController from "./controllers/tuits-constroller/index.js"
 import HelloController from "./controllers/hello-controller.js"
 import UserController from "./controllers/users/users-controller.js"
+import TuitsController from "./controllers/tuits/tuits-controller.js";
 
 
 // express function creates an instance of the express library
@@ -23,9 +24,10 @@ const app = express();
 app.use(express.json());
 
 examplesController(app);
-tuitsController(app);
+tuitsController(app); // in lecture
 HelloController(app);
-UserController(app)
+UserController(app);
+TuitsController(app); // in assignment
 
 // The server app listens to (wait at) port http://localhost:4000/, which does not collide with other web apps
 app.listen(process.env.PORT || 4000)
