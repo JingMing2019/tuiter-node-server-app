@@ -14,6 +14,8 @@ const UserController = (app) => {
     app.get('/api/users/:uid', findUserById);
 
     app.post('/api/users', createUser);
+
+    app.delete('/api/users/:uid', deleteUser);
 }
 
 // responds with array of users
@@ -52,6 +54,13 @@ const createUser = (req, res) => {
     newUser._id = (new Date()).getTime() + '';
     users.push(newUser);
     res.json(newUser);
+}
+
+const deleteUser = (req, res) => {
+    const userId = req.params['uid'];
+    users = users.filter(usr => usr._id !== userId);
+    // respond with success code
+    res.sendStatus(200);
 }
 
 
