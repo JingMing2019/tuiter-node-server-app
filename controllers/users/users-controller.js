@@ -16,6 +16,8 @@ const UserController = (app) => {
     app.post('/api/users', createUser);
 
     app.delete('/api/users/:uid', deleteUser);
+
+    app.put('/api/users/:uid', updateUser);
 }
 
 // responds with array of users
@@ -35,8 +37,10 @@ const findUsers = (req, res) => {
         // return so it doesn't continue
         return
     }
-    //
+    // send data in a json format
     res.json(users)
+    // // send data in string format
+    // res.send(users)
 }
 
 const findUserById = (req, res) => {
@@ -59,9 +63,20 @@ const createUser = (req, res) => {
 const deleteUser = (req, res) => {
     const userId = req.params['uid'];
     users = users.filter(usr => usr._id !== userId);
-    // respond with success code
+    // respond with success code, 200 represents ok, 404 (not found), 201 (created), 503 (server unreachable)
+    // sending HTTP request status with the client
     res.sendStatus(200);
 }
+
+const updateUser = (req, res) => {
+    const userId = req.params['uid'];
+    const updates = req.body;
+    users = users.map((usr) =>
+        usr._id === userId ? {...usr, ...updates} : usr
+    );
+    res.sendStatus(200);
+}
+
 
 
 
