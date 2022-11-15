@@ -1,11 +1,17 @@
 // // require function search library and load it to the local source, like import function
 // const express = require('express');
-
 // // use ./ to find the js file we create
 // const examplesController = require('./controllers/examples-controller')
 
-// when set type to module in package.json, we are able to use ES6
+// when set type to module in package.json, we are able to use ES6, instead of using require function above, we can use
+// import statement.
+
+// Express is one of the most popular Node.js libraries simplifying creating HTTP servers.
+// use express to implement HTTP servers that can respond to HTTP requests from any HTTP client (e.g. browser)
 import express from 'express';
+// CORS stands for Cross Origin Resource Sharing. establishes the rules by which resources can be shared across domains (origins)
+import cors from 'cors';
+
 import examplesController from "./controllers/examples-controller.js";
 import tuitsController from "./controllers/tuits-constroller/index.js"
 import HelloController from "./controllers/hello-controller.js"
@@ -17,10 +23,13 @@ import TuitsController from "./controllers/tuits/tuits-controller.js";
 // developers use app instance to configure the server on what to do when various types of requests are received.
 const app = express();
 
+// Configure CORS in app.js by importing it and using it as the first middleware, right after instantiating express
+app.use(cors());
+
 // Express defines a JSON middleware to parse data from the body that can be registered as a middleware.
 // All requests will first go through this middleware parsing the HTTP body into a JSON object added to the request
 // object in a new body property that later HTTP handlers can access.
-// parse JSON from HTTP request body
+// parse JSON object from HTTP request body
 app.use(express.json());
 
 examplesController(app);
