@@ -6,6 +6,10 @@ let users = people
 const UserController = (app) => {
     // requesting data from a server
     app.get('/api/users', findUsers)
+    // map path pattern to handler function
+    // The colon (:) followed by uid declares a placeholder that matches any literal string.
+    // The actual value in the placeholder can be retrieved using uid as a key into the request's params map.
+    app.get('/api/users/:uid', findUserById);
 }
 
 // responds with array of users
@@ -28,5 +32,15 @@ const findUsers = (req, res) => {
     //
     res.json(users)
 }
+
+const findUserById = (req, res) => {
+    // get uid from request parameter map
+    const userId = req.params.uid;
+    // const userId = req.params['uid'];
+    // find user in users array whose _id matches userId retrieved from params
+    const user = users.find(u => u._id === userId);
+    res.json(user);
+}
+
 
 export default UserController
