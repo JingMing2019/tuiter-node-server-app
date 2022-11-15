@@ -16,6 +16,12 @@ import UserController from "./controllers/users/users-controller.js"
 // developers use app instance to configure the server on what to do when various types of requests are received.
 const app = express();
 
+// Express defines a JSON middleware to parse data from the body that can be registered as a middleware.
+// All requests will first go through this middleware parsing the HTTP body into a JSON object added to the request
+// object in a new body property that later HTTP handlers can access.
+// parse JSON from HTTP request body
+app.use(express.json());
+
 examplesController(app);
 tuitsController(app);
 HelloController(app);

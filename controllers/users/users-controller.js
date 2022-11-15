@@ -2,14 +2,18 @@ import people from './users.js'
 
 let users = people
 
+// The user controller below will implement several HTTP endpoints to create, read, update, and delete users.
 // use express instance app to declare HTTP GET request pattern /api/users to call a function
 const UserController = (app) => {
+    // map path pattern ('/api/users') to handler function (findUsers)
     // requesting data from a server
     app.get('/api/users', findUsers)
-    // map path pattern to handler function
+
     // The colon (:) followed by uid declares a placeholder that matches any literal string.
     // The actual value in the placeholder can be retrieved using uid as a key into the request's params map.
     app.get('/api/users/:uid', findUserById);
+
+    app.post('/api/users', createUser);
 }
 
 // responds with array of users
@@ -41,6 +45,15 @@ const findUserById = (req, res) => {
     const user = users.find(u => u._id === userId);
     res.json(user);
 }
+
+const createUser = (req, res) => {
+    const newUser = req.body;
+    // add an _id property with unique timestamp
+    newUser._id = (new Date()).getTime() + '';
+    users.push(newUser);
+    res.json(newUser);
+}
+
 
 
 export default UserController
