@@ -2,12 +2,30 @@ import posts from "./tuits.js";
 
 let tuits = posts;
 
+const currentUser = {
+    "userName": "NASA",
+    "handle": "@nasa",
+    "image": "nasa-logo.jpg",
+};
+
+const templateTuit = {
+    ...currentUser,
+    "topic": "Space",
+    "time": "2h",
+    "liked": false,
+    "replies": 0,
+    "retuits": 0,
+    "likes": 0,
+}
+
 const createTuit = (req, res) => {
-    const newTuit = req.body;
-    newTuit._id = (new Date()).getTime() + '';
-    newTuit.likes = 0;
-    newTuit.liked = false;
-    tuits.push(newTuit);
+    let newTuit = req.body;
+    newTuit._id = (new Date()).getTime();
+    newTuit = {
+        ...templateTuit,
+        ...newTuit
+    }
+    tuits.unshift(newTuit);
     res.json(newTuit);
 }
 
