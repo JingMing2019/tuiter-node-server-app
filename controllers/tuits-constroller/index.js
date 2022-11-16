@@ -12,13 +12,40 @@ const TuitsController = (app) => {
     })
 
     app.post('/tuits', (req, res) => {
-
+        const newTuit = req.body;
+        newTuit['_id'] = (new Date()).getTime() + "";
+        tuits.push(newTuit);
+        res.sendStatus(200);
     })
 
-    app.put('', () => {})
+    app.put('/tuits/:tid', (req, res) => {
+        const tuitId = req.params['tid'];
+        const tuitsUpdates = req.body;
+        const tuitsIndex = tuits.findIndex(tuit => tuit._id === tuitId);
+        if (tuitsIndex >= 0) {
+            // only update the specific attributes
+            tuits[tuitsIndex] = {
+                ...tuits[tuitsIndex],
+                ...tuitsUpdates
+            };
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(404);
+        }
+    })
 
     // remove tuits by its id
-    app.delete('/tuits/:tid', (req, res) => {})
+    app.delete('/tuits/:tid', (req, res) => {
+        const tuitId = req.params['tid'];
+        const tuitIndex = tuits.findIndex(tuit => tuit._id === tuitId);
+        if (tuitIndex >= 0) {
+            tuits.splice(tuitIndex, 1);
+            // send(Integer) is deprecated in express
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(404);
+        }
+    })
 }
 
 export default TuitsController;
