@@ -1,4 +1,5 @@
-import tuits from './tuits.js'
+import tuitsArray from './tuits.js'
+let tuits = tuitsArray;
 
 const TuitsController = (app) => {
     app.get('/tuits', (req, res) => {res.send(tuits)})
