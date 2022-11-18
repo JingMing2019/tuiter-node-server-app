@@ -7,6 +7,7 @@ export default [
         "title": "100s of SpaceX Starships land on Mars after a 6 month journey. 1000s of Martian colonists being building Mars Base 1",
         "image": "avatar-spacex.jpeg",
         "liked": true,
+        "disliked": false,
         "replies": 123,
         "retuits": 432,
         "likes": 2345,
@@ -22,6 +23,7 @@ export default [
         "title": "Autopilot and Full Self-Driving Capability",
         "image": "tesla-logo.png",
         "liked": false,
+        "disliked": true,
         "replies": 234,
         "retuits": 543,
         "likes": 3456,
@@ -37,6 +39,7 @@ export default [
         "time": "2h",
         "image": "avatar-spacex.jpeg",
         "liked": true,
+        "disliked": false,
         "replies": 345,
         "retuits": 321,
         "likes": 1234,
@@ -53,6 +56,7 @@ export default [
         "title": "React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs",
         "image": "reactjs-blue.png",
         "liked": false,
+        "disliked": true,
         "replies": 345,
         "retuits": 1122,
         "likes": 32,
@@ -69,6 +73,7 @@ export default [
         "image": "javascript.png",
         "tweets": "123K",
         "liked": false,
+        "disliked": false,
         "replies": 32,
         "retuits": 156,
         "likes": 6789,
@@ -85,6 +90,7 @@ export default [
         "image": "jquery.png",
         "tweets": "122K",
         "liked": false,
+        "disliked": false,
         "replies": 1111,
         "retuits": 2222,
         "likes": 33,
@@ -101,6 +107,7 @@ export default [
         "image": "nodejs.png",
         "tweets": "120K",
         "liked": false,
+        "disliked": false,
         "replies": 3890,
         "retuits": 21,
         "likes": 45,
@@ -108,5 +115,4 @@ export default [
         "handle": "",
         "tuit": ""
     }
-]
-;
+];
