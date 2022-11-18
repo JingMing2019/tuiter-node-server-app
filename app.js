@@ -12,8 +12,6 @@ import express from 'express';
 // CORS stands for Cross Origin Resource Sharing. establishes the rules by which resources can be shared across domains (origins)
 import cors from 'cors';
 
-import examplesController from "./controllers/examples-controller.js";
-import tuitsController from "./controllers/tuits-constroller/index.js"
 import HelloController from "./controllers/hello-controller.js"
 import UserController from "./controllers/users/users-controller.js"
 import TuitsController from "./controllers/tuits/tuits-controller.js";
@@ -32,8 +30,6 @@ app.use(cors());
 // parse JSON object from HTTP request body
 app.use(express.json());
 
-examplesController(app);
-tuitsController(app); // in lecture
 HelloController(app);
 UserController(app);
 TuitsController(app); // in assignment
