@@ -12,6 +12,12 @@ import express from 'express';
 // CORS stands for Cross Origin Resource Sharing. establishes the rules by which resources can be shared across domains (origins)
 import cors from 'cors';
 
+// The Mongoose library provides a set of operations and abstractions that enhance a MongoDB database
+import mongoose from 'mongoose';
+// The URL in the connect function is called the connection string and is currently referring to a MongoDB server
+// instance running in the localhost machine
+mongoose.connect('mongodb://localhost:27017/tuiter');
+
 import HelloController from "./controllers/hello-controller.js"
 import UserController from "./controllers/users/users-controller.js"
 import TuitsController from "./controllers/tuits/tuits-controller.js";
