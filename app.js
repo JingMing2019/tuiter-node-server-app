@@ -16,8 +16,11 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 // // The URL in the connect function is called the connection string and is currently referring to a MongoDB server
 // // instance running in the localhost machine.
+// Way 1: connect to local mongodb
 // mongoose.connect('mongodb://localhost:27017/tuiter');
-// environment var decide which database we will connect
+// Way 2: connect to remote mongodb database on atlas
+// mongoose.connect('mongodb+srv://MavisMing:h7t44sONVRlFrW1R@cluster0.gikaybh.mongodb.net/?retryWrites=true&w=majority')
+// Way 3: auto switch environment var decide which database we will connect
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/tuiter';
 mongoose.connect(CONNECTION_STRING);
 
